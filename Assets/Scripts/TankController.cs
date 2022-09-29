@@ -10,7 +10,7 @@ public class TankController : MonoBehaviour
     Transform firePoint;
     [SerializeField]
     GameObject bulletToFire;
-    float bulletPower = 10f;
+    float bulletPower = 15f;
     void Start()
     {
         
