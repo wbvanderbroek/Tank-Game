@@ -5,10 +5,6 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     float BulletTTL = 5;
-    void Start()
-    {
-        
-    }
     void Update()
     {
         BulletTTL -= Time.deltaTime;
