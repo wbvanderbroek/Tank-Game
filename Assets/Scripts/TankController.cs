@@ -10,21 +10,20 @@ public class TankController : MonoBehaviour
     Transform firePoint;
     [SerializeField]
     GameObject bulletToFire;
-    [SerializeField]
-    GameObject particleToSpawn;
     private float bulletPower = 15f;
     private Rigidbody2D rb;
     private float dirX = 0f;
-    private float moveSpeed = 10f;
+    private float moveSpeed = 10f; 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if(bulletPower > 5)
+            if (bulletPower > 5)
             {
                 bulletPower = bulletPower - 1;
             }
@@ -34,7 +33,7 @@ public class TankController : MonoBehaviour
             if (bulletPower < 20)
             {
                 bulletPower = bulletPower + 1;
-            } 
+            }
         }
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
@@ -46,7 +45,7 @@ public class TankController : MonoBehaviour
         {
             GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
             b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
-            Instantiate(particleToSpawn, firePoint.position, firePoint.rotation );
         }
     }
+
 }

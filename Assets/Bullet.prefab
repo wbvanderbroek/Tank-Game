@@ -168,5 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ea5d8551cac2c4a9210ca22eed5ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleToSpawn: {fileID: 1384522548597661164}
+  particleToSpawn: {fileID: 7130473015305083739, guid: 8fae1119fd3bd334f977500e89424a22, type: 3}
   particleSpawnPoint: {fileID: 6750376528895299283}

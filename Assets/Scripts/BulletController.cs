@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BulletController : MonoBehaviour
     GameObject particleToSpawn;
     [SerializeField]
     Transform particleSpawnPoint;
+
     void Update()
     {
         BulletTTL -= Time.deltaTime;
@@ -19,7 +21,11 @@ public class BulletController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(particleToSpawn, particleSpawnPoint.position, particleSpawnPoint.rotation);
+        ParticleSpawner();
         Destroy(gameObject);   
+    }
+    public void ParticleSpawner()
+    {
+        Instantiate(particleToSpawn, particleSpawnPoint.position, particleSpawnPoint.rotation);
     }
 }
