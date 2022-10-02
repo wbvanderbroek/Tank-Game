@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankController : MonoBehaviour
+public class TankController2 : MonoBehaviour
 {
     [SerializeField] Transform barrelRotator;
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletToFire;
-    [SerializeField] GameObject Tank2;
+    [SerializeField] GameObject Tank1;
     private float bulletPower = 15f;
     private Rigidbody2D rb;
     private float dirX = 0f;
@@ -44,8 +44,8 @@ public class TankController : MonoBehaviour
         {
             GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
             b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
-            Tank2.GetComponent<TankController2>().enabled = true;
-            GetComponent<TankController>().enabled = false;
+            Tank1.GetComponent<TankController>().enabled = true;
+            GetComponent<TankController2>().enabled = false;
         }
     }
 }
