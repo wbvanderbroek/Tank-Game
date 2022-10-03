@@ -12,6 +12,7 @@ public class TankController : MonoBehaviour
     private Rigidbody2D rb;
     private float dirX = 0f;
     private float moveSpeed = 3f;
+    private float playerTurn = 0f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +35,12 @@ public class TankController : MonoBehaviour
                 bulletPower = bulletPower + 1;
             }
         }
+        if (playerTurn == 3)
+        {
+            GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank2();
+            GetComponent<TankController>().enabled = false;
+            playerTurn = 0;
+        }
         dirX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
         //float ClampedInput = Mathf.Clamp(Input.GetAxis("Vertical"), 0f, 1f);
@@ -44,8 +51,7 @@ public class TankController : MonoBehaviour
         {
             GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
             b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
-            Tank2.GetComponent<TankController2>().enabled = true;
-            GetComponent<TankController>().enabled = false;
+            playerTurn = playerTurn + 1;
         }
     }
 }
