@@ -157,6 +157,8 @@ MonoBehaviour:
   firePoint: {fileID: 82677128}
   bulletToFire: {fileID: 2039446518944171718, guid: 3e369f5705c711c4989da8928bf96414, type: 3}
   Tank1: {fileID: 1997111011}
+  inactiveMat: {fileID: 2100000, guid: fd5577634356acc48b97ff87d9ba1b19, type: 2}
+  activeMat: {fileID: 2100000, guid: b84663678af6971498b6a216ffa44d62, type: 2}
 --- !u!50 &40081277
 Rigidbody2D:
   serializedVersion: 4
@@ -526,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tank1: {fileID: 1997111011}
   Tank2: {fileID: 40081275}
+  Bullet: {fileID: 2039446518944171718, guid: 3e369f5705c711c4989da8928bf96414, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,7 +1276,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.010252746, g: 0.3254902, b: 0.057601828, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1551,3 +1554,5 @@ MonoBehaviour:
   firePoint: {fileID: 1207720790}
   bulletToFire: {fileID: 2039446518944171718, guid: 3e369f5705c711c4989da8928bf96414, type: 3}
   Tank2: {fileID: 40081275}
+  inactiveMat: {fileID: 2100000, guid: fd5577634356acc48b97ff87d9ba1b19, type: 2}
+  activeMat: {fileID: 2100000, guid: b84663678af6971498b6a216ffa44d62, type: 2}

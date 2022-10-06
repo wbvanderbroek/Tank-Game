@@ -8,6 +8,8 @@ public class TankController2 : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletToFire;
     [SerializeField] GameObject Tank1;
+    [SerializeField] Material inactiveMat;
+    [SerializeField] Material activeMat;
     private float bulletPower = 15f;
     private Rigidbody2D rb;
     private float dirX = 0f;
@@ -16,6 +18,11 @@ public class TankController2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+    }
+    private void OnEnable()
+    {
+        GetComponentInChildren<SpriteRenderer>().material = activeMat;
 
     }
     void Update()
@@ -38,6 +45,7 @@ public class TankController2 : MonoBehaviour
         if (playerTurn == 3)
         {
             GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank1();
+            GetComponentInChildren<SpriteRenderer>().material = inactiveMat;
             GetComponent<TankController2>().enabled = false;
             playerTurn = 0;
         }
