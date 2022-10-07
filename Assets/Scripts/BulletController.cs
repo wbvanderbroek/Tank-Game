@@ -21,8 +21,17 @@ public class BulletController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.name == "Tank1")
+        {
+            Debug.Log("tank1 hit");
+        }
+        if (collision.gameObject.name == "Tank2")
+        {
+            Debug.Log("tank2 hit");
+        }
         ParticleSpawner();
-        Destroy(gameObject);   
+        Destroy(gameObject);
+
     }
     public void ParticleSpawner()
     {

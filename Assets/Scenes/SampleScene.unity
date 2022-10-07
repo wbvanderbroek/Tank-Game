@@ -1187,7 +1187,7 @@ GameObject:
   - component: {fileID: 1464891024}
   - component: {fileID: 1464891023}
   m_Layer: 0
-  m_Name: tankBody
+  m_Name: tankBody2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 1766734094}
   - component: {fileID: 1766734096}
   m_Layer: 0
-  m_Name: tankBody
+  m_Name: tankBody1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
