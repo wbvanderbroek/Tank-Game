@@ -23,11 +23,11 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.name == "Tank1")
         {
-            Debug.Log("tank1 hit");
+            GameObject.Find("Canvas").GetComponent<ScoreManager>().AddP2Score();
         }
         if (collision.gameObject.name == "Tank2")
         {
-            Debug.Log("tank2 hit");
+            GameObject.Find("Canvas").GetComponent<ScoreManager>().AddP1Score();
         }
         ParticleSpawner();
         Destroy(gameObject);

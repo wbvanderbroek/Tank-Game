@@ -15,6 +15,7 @@ public class TankController2 : MonoBehaviour
     private float dirX = 0f;
     private float moveSpeed = 3f;
     private float playerTurn = 0f;
+    private float cooldownOnShots = 0f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,6 +28,10 @@ public class TankController2 : MonoBehaviour
     }
     void Update()
     {
+        if (cooldownOnShots > 0)
+        {
+            cooldownOnShots -= Time.deltaTime;
+        }
         if (Input.GetMouseButtonDown(1))
         {
             if (bulletPower > 5)
@@ -55,11 +60,11 @@ public class TankController2 : MonoBehaviour
         //Vector3 ClampedAngle = Mathf.Clamp
         barrelRotator.RotateAround(Vector3.forward, Input.GetAxis("Vertical") * Time.deltaTime * -1);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && (cooldownOnShots <= 0))
         {
+            cooldownOnShots = 1.0f;
             GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
             b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
-
             playerTurn = playerTurn + 1;
         }
     }
