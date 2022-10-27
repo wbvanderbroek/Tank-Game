@@ -9,14 +9,14 @@ public class TankController : MonoBehaviour
     [SerializeField] GameObject bulletToFire;
     [SerializeField] GameObject Tank1;
     [SerializeField] GameObject Tank2;
-    [SerializeField] Material inactiveMat;
-    [SerializeField] Material activeMat;
+    [SerializeField] Sprite inactiveSprite;
+    [SerializeField] Sprite activeSprite;
     [SerializeField] TankController controller1;
     [SerializeField] TankController controller2;
     private float bulletPower = 15f;
     private float cooldownOnShots = 0f;
-    private float playerTurn1 = 0f;
-    private float playerTurn2 = 0f;
+    private float player1Turn = 0f;
+    private float player2Turn = 0f;
 
     private Rigidbody2D rb;
     private float dirX = 0f;
@@ -30,8 +30,8 @@ public class TankController : MonoBehaviour
     }
     private void OnEnable()
     {
-        //GetComponentInChildren<SpriteRenderer>().material = activeMat;
-        
+        GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
+
     }
     void Update()
     {
@@ -55,19 +55,19 @@ public class TankController : MonoBehaviour
                 bulletPower = bulletPower + 1;
             }
         }
-        if (playerTurn1 == 3)
+        if (player1Turn == 3)
         {
             GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank1();
-            //GetComponentInChildren<SpriteRenderer>().material = inactiveMat;
+            GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite; 
             GetComponent<TankController>().enabled = false;
-            playerTurn1 = 0;
+            player1Turn = 0;
         }
-        if (playerTurn2 == 3)
+        if (player2Turn == 3)
         {
             GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank2();
-            //GetComponentInChildren<SpriteRenderer>().material = inactiveMat;
+            GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
             GetComponent<TankController>().enabled = false;
-            playerTurn2 = 0;
+            player2Turn = 0;
         }
         dirX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
@@ -82,13 +82,11 @@ public class TankController : MonoBehaviour
             
             if (controller1.isActiveAndEnabled == true)
             {
-                playerTurn1 = playerTurn1 + 1;
-                Debug.Log("tank1 active");
+                player1Turn = player1Turn + 1;
             }
             if (controller2.isActiveAndEnabled == true)
             {
-                playerTurn2 = playerTurn2 + 1;
-                Debug.Log("tank2 active");
+                player2Turn = player2Turn + 1;
             }
         }
     }
