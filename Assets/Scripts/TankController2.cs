@@ -23,7 +23,7 @@ public class TankController2 : MonoBehaviour
     }
     private void OnEnable()
     {
-        GetComponentInChildren<SpriteRenderer>().material = activeMat;
+        //GetComponentInChildren<SpriteRenderer>().material = activeMat;
 
     }
     void Update()
@@ -50,7 +50,7 @@ public class TankController2 : MonoBehaviour
         if (playerTurn == 3)
         {
             GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank1();
-            GetComponentInChildren<SpriteRenderer>().material = inactiveMat;
+            //GetComponentInChildren<SpriteRenderer>().material = inactiveMat;
             GetComponent<TankController2>().enabled = false;
             playerTurn = 0;
         }
