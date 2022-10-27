@@ -13,7 +13,7 @@ public class TankController : MonoBehaviour
     [SerializeField] Sprite activeSprite;
     [SerializeField] TankController controller1;
     [SerializeField] TankController controller2;
-    private float bulletPower = 15f;
+    public int bulletPower = 15;
     private float cooldownOnShots = 0f;
     private float player1Turn = 0f;
     private float player2Turn = 0f;
@@ -42,7 +42,7 @@ public class TankController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            if (bulletPower > 5)
+            if (bulletPower > 8)
             {
                 bulletPower = bulletPower - 1;
             }
