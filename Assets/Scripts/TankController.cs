@@ -73,7 +73,15 @@ public class TankController : MonoBehaviour
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
         //float ClampedInput = Mathf.Clamp(Input.GetAxis("Vertical"), 0f, 1f);
         //Vector3 ClampedAngle = Mathf.Clamp
-        barrelRotator.RotateAround(Vector3.forward, Input.GetAxis("Vertical") * Time.deltaTime);
+        if (controller1.isActiveAndEnabled == true)
+        {
+            barrelRotator.RotateAround(Vector3.forward, Input.GetAxis("Vertical") * Time.deltaTime);
+        }
+        if (controller2.isActiveAndEnabled == true)
+        {
+            barrelRotator.RotateAround(Vector3.forward, Input.GetAxis("Vertical") * Time.deltaTime * -1);
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space) && (cooldownOnShots <= 0))
         {
             cooldownOnShots = 1.0f;
