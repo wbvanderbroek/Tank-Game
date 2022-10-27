@@ -59,13 +59,13 @@ public class TankController2 : MonoBehaviour
         //float ClampedInput = Mathf.Clamp(Input.GetAxis("Vertical"), 0f, 1f);
         //Vector3 ClampedAngle = Mathf.Clamp
         barrelRotator.RotateAround(Vector3.forward, Input.GetAxis("Vertical") * Time.deltaTime * -1);
-
         if (Input.GetKeyDown(KeyCode.Space) && (cooldownOnShots <= 0))
         {
             cooldownOnShots = 1.0f;
             GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
             b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
             playerTurn = playerTurn + 1;
+
         }
     }
 }
