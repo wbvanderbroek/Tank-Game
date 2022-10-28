@@ -24,10 +24,12 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.name == "Tank1")
         {
             GameObject.Find("Canvas").GetComponent<ScoreManager>().AddP2Score();
+            GameObject.Find("Tank1").GetComponent<HealthManager>().TakeDamage(10); 
         }
         if (collision.gameObject.name == "Tank2")
         {
             GameObject.Find("Canvas").GetComponent<ScoreManager>().AddP1Score();
+            GameObject.Find("Tank2").GetComponent<HealthManager>().TakeDamage(10);
         }
         ParticleSpawner();
         Destroy(gameObject);
