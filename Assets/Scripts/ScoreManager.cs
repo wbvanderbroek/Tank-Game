@@ -26,14 +26,4 @@ public class ScoreManager : MonoBehaviour
        bulletPower1.text = tankController1.bulletPower.ToString();
        bulletPower2.text = tankController2.bulletPower.ToString();
     }
-    public void AddP1Score()
-    {
-        player1Score++;
-        p1Text.text = player1Score.ToString();
-    }
-    public void AddP2Score()
-    {
-        player2Score++;
-        p2Text.text = player2Score.ToString();
-    }
 }
