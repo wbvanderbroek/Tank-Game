@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TankController : MonoBehaviour
 {
@@ -13,6 +14,15 @@ public class TankController : MonoBehaviour
     [SerializeField] Sprite activeSprite;
     [SerializeField] TankController controller1;
     [SerializeField] TankController controller2;
+
+    [SerializeField] Image bullets3Leftplayer1;
+    [SerializeField] Image bullets2Leftplayer1;
+    [SerializeField] Image bullets1Leftplayer1;
+
+    [SerializeField] Image bullets3Leftplayer2;
+    [SerializeField] Image bullets2Leftplayer2;
+    [SerializeField] Image bullets1Leftplayer2;
+
     public int bulletPower = 15;
     private float cooldownOnShots = 0f;
     private float player1Turn = 0f;
@@ -31,10 +41,52 @@ public class TankController : MonoBehaviour
     private void OnEnable()
     {
         GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
-
+        if (controller1.isActiveAndEnabled == true)
+        {
+            bullets1Leftplayer1.enabled = true;
+            bullets2Leftplayer1.enabled = true;
+            bullets3Leftplayer1.enabled = true;
+        }
+        if (controller2.isActiveAndEnabled == true)
+        {
+            bullets1Leftplayer2.enabled = true;
+            bullets2Leftplayer2.enabled = true;
+            bullets3Leftplayer2.enabled = true;
+        }
     }
+
     void Update()
     {
+        if (controller1.isActiveAndEnabled == true)
+        {
+            if (player1Turn == 1)
+            {
+                bullets1Leftplayer1.enabled = false;
+            }
+            if (player1Turn == 2)
+            {
+                bullets2Leftplayer1.enabled = false;
+            }
+            if (player1Turn == 3)
+            {
+                bullets3Leftplayer1.enabled = false;
+            }
+        }
+        if (controller2.isActiveAndEnabled == true)
+        {
+            if (player2Turn == 1)
+            {
+                bullets1Leftplayer2.enabled = false;
+            }
+            if (player2Turn == 2)
+            {
+                bullets2Leftplayer2.enabled = false;
+            }
+            if (player2Turn == 3)
+            {
+                bullets3Leftplayer2.enabled = false;
+            }
+        }
         if (cooldownOnShots > 0)
         {
             cooldownOnShots -= Time.deltaTime;
