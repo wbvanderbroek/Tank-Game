@@ -33,7 +33,7 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject);
 
     }
-    public void ParticleSpawner()
+    private void ParticleSpawner()
     {
         Instantiate(particleToSpawn, particleSpawnPoint.position, particleSpawnPoint.rotation);
     }
