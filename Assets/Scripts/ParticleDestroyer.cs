@@ -7,7 +7,7 @@ public class ParticleDestroyer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Destroy", 3);
+        Invoke("Destroy", 2.5f);
     }
     private void Destroy()
     {

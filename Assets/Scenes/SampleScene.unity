@@ -976,7 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank1: {fileID: 1997111011}
   tank2: {fileID: 2059560152}
-  trackingSpeed: 2
+  trackingSpeed: 2.3
   controller1: {fileID: 1997111015}
   controller2: {fileID: 2059560153}
 --- !u!1 &563468700
@@ -15466,13 +15466,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766734093}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.055596247, y: -0.37446207}
+  m_Offset: {x: -0.070188075, y: -0.18801442}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15483,7 +15483,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.059418, y: 0.25107586}
+  m_Size: {x: 0.51790994, y: 0.11164534}
   m_EdgeRadius: 0
 --- !u!70 &1766734097
 CapsuleCollider2D:
@@ -16010,13 +16010,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927108026}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.055596247, y: -0.37446207}
+  m_Offset: {x: -0.070188075, y: -0.18801442}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -16027,7 +16027,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.059418, y: 0.25107586}
+  m_Size: {x: 0.51790994, y: 0.11164534}
   m_EdgeRadius: 0
 --- !u!212 &1927108029
 SpriteRenderer:
@@ -16243,7 +16243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997111011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 0.18, z: 0.096729994}
+  m_LocalPosition: {x: -5.3232527, y: 0.125592, z: 0.096729994}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
