@@ -63,13 +63,10 @@ public class TankController : MonoBehaviour
     {
         BulletVisualizerUI();
         Movement();
+        CooldownOnSBullets();
         Shoot();
         PlayerTurnManager();
         BulletPowerAdjuster();
-        if (cooldownOnShots > 0)
-        {
-            cooldownOnShots -= Time.deltaTime;
-        }
     }
     private void BulletVisualizerUI()
     {
@@ -102,6 +99,13 @@ public class TankController : MonoBehaviour
             {
                 bullets3Leftplayer2.enabled = false;
             }
+        }
+    }
+    private void CooldownOnSBullets()
+    {
+        if (cooldownOnShots > 0)
+        {
+            cooldownOnShots -= Time.deltaTime;
         }
     }
     private void Shoot()
@@ -173,4 +177,6 @@ public class TankController : MonoBehaviour
             }
         }
     }
+
 }
+

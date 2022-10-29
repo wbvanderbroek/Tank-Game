@@ -32,7 +32,6 @@ public class BulletController : MonoBehaviour
             GameObject.Find("Tank2").GetComponent<HealthManager>().TakeDamage(10);
         }
         Destroy(gameObject);
-
     }
     private void ParticleSpawner()
     {
