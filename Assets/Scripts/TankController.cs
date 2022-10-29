@@ -24,8 +24,8 @@ public class TankController : MonoBehaviour
     [SerializeField] Image bullets2Leftplayer2;
     [SerializeField] Image bullets1Leftplayer2;
 
-    private float rotationZ1 = 0.0f;
-    private float rotationZ2 = 0.0f;
+    private float rotationZ1 = -70f;
+    private float rotationZ2 = -70f;
     private int barrelRotationSpeed = 15;
     public int bulletPower = 15;
     private float cooldownOnShots = 0f;
@@ -133,31 +133,17 @@ public class TankController : MonoBehaviour
             player2Turn = 0;
         }
         dirX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
-        //float ClampedInput = Mathf.Clamp(Input.GetAxis("Vertical"), 0f, 1f);
-        //Vector3 ClampedAngle = Mathf.Clamp
-        
+        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);        
         if (controller1.isActiveAndEnabled == true)
         {
             rotationZ1 -= Input.GetAxis("Vertical") * Time.deltaTime * barrelRotationSpeed * -1;
-            rotationZ1 = Mathf.Clamp(rotationZ1 ,- 90, -45);
+            rotationZ1 = Mathf.Clamp(rotationZ1 , -95, -45);
             barrelRotator.transform.eulerAngles = new Vector3(0, 0, rotationZ1);
-            
-
-            //barrelRotator.transform.Rotate(Vector3.forward, barrelRotationAngle, Space.Self);
-            //Mathf.Clamp(barrelRotator.transform.rotation.eulerAngles.z, -90, -45);
-            //barrelRotator.transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(transform.rotation.eulerAngles.y, -30f, -90f));
-
-            /*if ((barrelRotator.transform.rotation.eulerAngles.z > 270) && (barrelRotator.transform.rotation.eulerAngles.z < 315))
-            {
-                barrelRotator.transform.Rotate(Vector3.forward, Input.GetAxis("Vertical") * Time.deltaTime * barrelRotationSpeed);
-                Debug.Log("sdfjk"); 
-            } */
         }
         if (controller2.isActiveAndEnabled == true)
         {
             rotationZ2 -= Input.GetAxis("Vertical") * Time.deltaTime * barrelRotationSpeed * -1;
-            rotationZ2 = Mathf.Clamp(rotationZ2, -90, -45);
+            rotationZ2 = Mathf.Clamp(rotationZ2, -95, -45);
             barrelRotator.transform.eulerAngles = new Vector3(0, 180, rotationZ2);            
         }
         
