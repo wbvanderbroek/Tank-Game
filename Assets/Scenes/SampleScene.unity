@@ -16302,8 +16302,7 @@ MonoBehaviour:
   bullets3Leftplayer2: {fileID: 279202297}
   bullets2Leftplayer2: {fileID: 1843833246}
   bullets1Leftplayer2: {fileID: 320582069}
-  isPlayer1Turn: 1
-  isPlayer2Turn: 0
+  isPlayerTurn: 1
 --- !u!114 &1997111016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16514,8 +16513,7 @@ MonoBehaviour:
   bullets3Leftplayer2: {fileID: 279202297}
   bullets2Leftplayer2: {fileID: 1843833246}
   bullets1Leftplayer2: {fileID: 320582069}
-  isPlayer1Turn: 0
-  isPlayer2Turn: 0
+  isPlayerTurn: 0
 --- !u!50 &2059560154
 Rigidbody2D:
   serializedVersion: 4
