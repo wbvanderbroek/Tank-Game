@@ -24,7 +24,7 @@ public class TurnManager : MonoBehaviour
     {
         if (TotalBullets == 0)
         {
-            Tank2.GetComponent<TankController>().enabled = true;
+            Tank2.GetComponent<TankController>().isPlayer2Turn = true;
         }
         else
         {
@@ -35,7 +35,7 @@ public class TurnManager : MonoBehaviour
     {
         if (TotalBullets== 0)
         {
-            Tank1.GetComponent<TankController>().enabled = true;
+            Tank1.GetComponent<TankController>().isPlayer1Turn = true;
         }
         else
         {

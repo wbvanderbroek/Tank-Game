@@ -16288,20 +16288,22 @@ MonoBehaviour:
   barrelRotator: {fileID: 350306062}
   firePoint: {fileID: 1207720790}
   bulletToFire: {fileID: 2039446518944171718, guid: 3e369f5705c711c4989da8928bf96414, type: 3}
+  bulletPower: 15
   Tank1: {fileID: 1997111011}
   Tank2: {fileID: 2059560152}
   inactiveSprite: {fileID: 21300000, guid: 1ae8ff054e142724d989e8add0eb4978, type: 3}
   activeSprite: {fileID: 21300000, guid: ddbb3978ff4a80c46b3f0daa8c309927, type: 3}
   controller1: {fileID: 1997111015}
   controller2: {fileID: 2059560153}
+  cam: {fileID: 519420031}
   bullets3Leftplayer1: {fileID: 319382622}
   bullets2Leftplayer1: {fileID: 303632108}
   bullets1Leftplayer1: {fileID: 2020348767}
   bullets3Leftplayer2: {fileID: 279202297}
   bullets2Leftplayer2: {fileID: 1843833246}
   bullets1Leftplayer2: {fileID: 320582069}
-  bulletPower: 15
-  cam: {fileID: 519420031}
+  isPlayer1Turn: 1
+  isPlayer2Turn: 0
 --- !u!114 &1997111016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16490,7 +16492,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059560152}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8156438ce06b9b4490f06e3c0371c00, type: 3}
   m_Name: 
@@ -16498,20 +16500,22 @@ MonoBehaviour:
   barrelRotator: {fileID: 466618045}
   firePoint: {fileID: 571035911}
   bulletToFire: {fileID: 2039446518944171718, guid: 3e369f5705c711c4989da8928bf96414, type: 3}
+  bulletPower: 15
   Tank1: {fileID: 1997111011}
   Tank2: {fileID: 2059560152}
   inactiveSprite: {fileID: 21300000, guid: 1ae8ff054e142724d989e8add0eb4978, type: 3}
   activeSprite: {fileID: 21300000, guid: ddbb3978ff4a80c46b3f0daa8c309927, type: 3}
   controller1: {fileID: 1997111015}
   controller2: {fileID: 2059560153}
+  cam: {fileID: 519420031}
   bullets3Leftplayer1: {fileID: 319382622}
   bullets2Leftplayer1: {fileID: 303632108}
   bullets1Leftplayer1: {fileID: 2020348767}
   bullets3Leftplayer2: {fileID: 279202297}
   bullets2Leftplayer2: {fileID: 1843833246}
   bullets1Leftplayer2: {fileID: 320582069}
-  bulletPower: 15
-  cam: {fileID: 519420031}
+  isPlayer1Turn: 0
+  isPlayer2Turn: 0
 --- !u!50 &2059560154
 Rigidbody2D:
   serializedVersion: 4
