@@ -24,7 +24,8 @@ public class TurnManager : MonoBehaviour
     {
         if (TotalBullets == 0)
         {
-            Tank2.GetComponent<TankController>().isPlayer2Turn = true;
+            Tank2.GetComponent<TankController>().isPlayerTurn = true;
+            Tank2.GetComponent<TankController>().SpriteEnabler();
         }
         else
         {
@@ -35,7 +36,9 @@ public class TurnManager : MonoBehaviour
     {
         if (TotalBullets== 0)
         {
-            Tank1.GetComponent<TankController>().isPlayer1Turn = true;
+            Tank1.GetComponent<TankController>().isPlayerTurn = true;
+            Tank1.GetComponent<TankController>().SpriteEnabler();
+
         }
         else
         {

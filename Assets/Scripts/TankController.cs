@@ -33,8 +33,7 @@ public class TankController : MonoBehaviour
 
     private int player1Turn = 0;
     private int player2Turn = 0;
-    public bool isPlayer1Turn = true;
-    public bool isPlayer2Turn = true;
+    public bool isPlayerTurn = true;
 
     private Rigidbody2D rb;
     private float dirX = 0f;
@@ -45,16 +44,16 @@ public class TankController : MonoBehaviour
         controller2 = controller2.GetComponent<TankController>();
         rb = GetComponent<Rigidbody2D>(); 
     }
-    private void OnEnable()
+    public void SpriteEnabler()
     {
-        if (isPlayer1Turn == true)
+        if (controller1.isPlayerTurn == true)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
             bullets1Leftplayer1.enabled = true;
             bullets2Leftplayer1.enabled = true;
             bullets3Leftplayer1.enabled = true;
         }
-        if (isPlayer2Turn == true)
+        if (controller2.isPlayerTurn == true)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
             bullets1Leftplayer2.enabled = true;
@@ -64,7 +63,7 @@ public class TankController : MonoBehaviour
     }
     void Update()
     {
-        if (isPlayer1Turn == true)
+        if (isPlayerTurn == true)
         {
             BulletVisualizerUI();
             Movement();
@@ -73,21 +72,10 @@ public class TankController : MonoBehaviour
             PlayerTurnManager();
             BulletPowerAdjuster();
         }
-        if (isPlayer2Turn == true)
-        {
-            BulletVisualizerUI();
-            Movement();
-            CooldownOnSBullets();
-            Shoot();
-            PlayerTurnManager();
-            BulletPowerAdjuster();
-        }
-
-
     }
     private void BulletVisualizerUI()
     {
-        if (isPlayer1Turn == true)
+        if (controller1.isPlayerTurn == true)
         {
             if (player1Turn == 1)
             {
@@ -97,12 +85,8 @@ public class TankController : MonoBehaviour
             {
                 bullets2Leftplayer1.enabled = false;
             }
-            if (player1Turn == 3)
-            {
-                bullets3Leftplayer1.enabled = false;
-            }
         }
-        if (isPlayer2Turn == true)
+        if (controller2.isPlayerTurn == true)
         {
             if (player2Turn == 1)
             {
@@ -111,10 +95,6 @@ public class TankController : MonoBehaviour
             if (player2Turn == 2)
             {
                 bullets2Leftplayer2.enabled = false;
-            }
-            if (player2Turn == 3)
-            {
-                bullets3Leftplayer2.enabled = false;
             }
         }
     }
@@ -133,11 +113,11 @@ public class TankController : MonoBehaviour
             GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
             b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
 
-            if (isPlayer1Turn == true)
+            if (controller1.isPlayerTurn == true)
             {
                 player1Turn = player1Turn + 1;
             }
-            if (isPlayer2Turn == true)
+            if (controller2.isPlayerTurn == true)
             {
                 player2Turn = player2Turn + 1;
             }
@@ -147,13 +127,13 @@ public class TankController : MonoBehaviour
     {
         dirX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
-        if (isPlayer1Turn == true)
+        if (controller1.isPlayerTurn == true)
         {
             rotationZ1 -= Input.GetAxis("Vertical") * Time.deltaTime * barrelRotationSpeed * -1;
             rotationZ1 = Mathf.Clamp(rotationZ1, -95, -45);
             barrelRotator.transform.eulerAngles = new Vector3(0, 0, rotationZ1);
         }
-        if (isPlayer2Turn == true)
+        if (controller2.isPlayerTurn == true)
         {
             rotationZ2 -= Input.GetAxis("Vertical") * Time.deltaTime * barrelRotationSpeed * -1;
             rotationZ2 = Mathf.Clamp(rotationZ2, -95, -45);
@@ -164,16 +144,18 @@ public class TankController : MonoBehaviour
     {
         if (player1Turn == 3)
         {
+            bullets3Leftplayer1.enabled = false;
             GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank1();
             GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
-            isPlayer1Turn = false;
+            controller1.isPlayerTurn = false;
             player1Turn = 0;
         }
         if (player2Turn == 3)
         {
+            bullets3Leftplayer2.enabled = false;
             GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank2();
             GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
-            isPlayer2Turn = false;
+            controller2.isPlayerTurn = false;
             player2Turn = 0;
         }
     }
