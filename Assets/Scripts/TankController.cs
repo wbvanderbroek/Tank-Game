@@ -22,6 +22,7 @@ public class TankController : MonoBehaviour
     [SerializeField] TankController controller1;
     [SerializeField] TankController controller2;
     [SerializeField] Camera cam;
+    [SerializeField] CameraController camControl;
 
     [SerializeField] Image bullets3Leftplayer1;
     [SerializeField] Image bullets2Leftplayer1;
@@ -38,7 +39,7 @@ public class TankController : MonoBehaviour
     private int TotalBulletsInScene = 0;
 
     private Rigidbody2D rb;
-    private float dirX = 0f;
+    public float dirX = 0f;
     private float moveSpeed = 3f;
     void Start()
     {
@@ -65,7 +66,6 @@ public class TankController : MonoBehaviour
     }
     void Update()
     {
-        TotalBulletsInScene = GameObject.FindGameObjectsWithTag("Bullet").Length;
         if (isPlayerTurn == true)
         {
             BulletVisualizerUI();
@@ -110,26 +110,34 @@ public class TankController : MonoBehaviour
     }
     private void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && (cooldownOnShots <= 0) && TotalBulletsInScene == 0)
+        if (camControl.allowMoveAndShoot == true)
         {
-            cooldownOnShots = 1.0f;
-            GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
-            b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
+            TotalBulletsInScene = GameObject.FindGameObjectsWithTag("Bullet").Length;
+            if (Input.GetKeyDown(KeyCode.Space) && (cooldownOnShots <= 0) && TotalBulletsInScene == 0)
+            {
+                cooldownOnShots = 1.0f;
+                GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+                b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
 
-            if (controller1.isPlayerTurn == true)
-            {
-                player1Turn = player1Turn + 1;
-            }
-            if (controller2.isPlayerTurn == true)
-            {
-                player2Turn = player2Turn + 1;
+                if (controller1.isPlayerTurn == true)
+                {
+                    player1Turn++;
+                }
+                if (controller2.isPlayerTurn == true)
+                {
+                    player2Turn++;
+                }
             }
         }
     }
     private void Movement()
     {
-        dirX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        if (camControl.allowMoveAndShoot == true)
+        {
+            dirX = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        }
+
         if (controller1.isPlayerTurn == true)
         {
             rotationZ1 -= Input.GetAxis("Vertical") * Time.deltaTime * barrelRotationSpeed * -1;
@@ -145,10 +153,11 @@ public class TankController : MonoBehaviour
     }
     private void PlayerTurnManager()
     {
+        //nog toevoegen dat als er van player geswapped wordt dat dan de cam ook veranderd van target
         if (player1Turn == 3)
         {
             bullets3Leftplayer1.enabled = false;
-            GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank1();
+            GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank2();
             GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
             controller1.isPlayerTurn = false;
             player1Turn = 0;
@@ -156,7 +165,7 @@ public class TankController : MonoBehaviour
         if (player2Turn == 3)
         {
             bullets3Leftplayer2.enabled = false;
-            GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank2();
+            GameObject.Find("Main Camera").GetComponent<TurnManager>().InvokeTank1();
             GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
             controller2.isPlayerTurn = false;
             player2Turn = 0;
@@ -168,14 +177,14 @@ public class TankController : MonoBehaviour
         {
             if (bulletPower > 8)
             {
-                bulletPower = bulletPower - 1;
+                bulletPower--;
             }
         }
         if (Input.GetMouseButtonDown(0))
         {
             if (bulletPower < 20)
             {
-                bulletPower = bulletPower + 1;
+                bulletPower++;
             }
         }
     }

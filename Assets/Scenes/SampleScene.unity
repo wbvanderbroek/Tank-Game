@@ -962,6 +962,7 @@ MonoBehaviour:
   Tank1: {fileID: 1997111011}
   Tank2: {fileID: 2059560152}
   Bullet: {fileID: 0}
+  camControl: {fileID: 519420034}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,10 +977,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tank1: {fileID: 1997111012}
   tank2: {fileID: 2059560155}
-  trackingSpeed: 2.3
-  bulletTrackingSpeed: 15
+  trackingSpeed: 8
   controller1: {fileID: 1997111015}
   controller2: {fileID: 2059560153}
+  movingToPlayer1: 0
+  movingToPlayer2: 0
+  allowMoveAndShoot: 0
 --- !u!1 &563468700
 GameObject:
   m_ObjectHideFlags: 0
@@ -16164,6 +16167,7 @@ MonoBehaviour:
   controller1: {fileID: 1997111015}
   controller2: {fileID: 2059560153}
   cam: {fileID: 519420031}
+  camControl: {fileID: 519420034}
   bullets3Leftplayer1: {fileID: 319382622}
   bullets2Leftplayer1: {fileID: 303632108}
   bullets1Leftplayer1: {fileID: 2020348767}
@@ -16171,6 +16175,7 @@ MonoBehaviour:
   bullets2Leftplayer2: {fileID: 1843833246}
   bullets1Leftplayer2: {fileID: 320582069}
   isPlayerTurn: 1
+  dirX: 0
 --- !u!114 &1997111016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16375,6 +16380,7 @@ MonoBehaviour:
   controller1: {fileID: 1997111015}
   controller2: {fileID: 2059560153}
   cam: {fileID: 519420031}
+  camControl: {fileID: 519420034}
   bullets3Leftplayer1: {fileID: 319382622}
   bullets2Leftplayer1: {fileID: 303632108}
   bullets1Leftplayer1: {fileID: 2020348767}
@@ -16382,6 +16388,7 @@ MonoBehaviour:
   bullets2Leftplayer2: {fileID: 1843833246}
   bullets1Leftplayer2: {fileID: 320582069}
   isPlayerTurn: 0
+  dirX: 0
 --- !u!50 &2059560154
 Rigidbody2D:
   serializedVersion: 4

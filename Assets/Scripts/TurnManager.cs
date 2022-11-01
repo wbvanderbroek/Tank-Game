@@ -7,6 +7,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] GameObject Tank1;
     [SerializeField] GameObject Tank2;
     [SerializeField] GameObject Bullet;
+    [SerializeField] CameraController camControl;
     private int TotalBullets = 0;
     private void Update()
     {
@@ -24,8 +25,9 @@ public class TurnManager : MonoBehaviour
     {
         if (TotalBullets == 0)
         {
-            Tank2.GetComponent<TankController>().isPlayerTurn = true;
-            Tank2.GetComponent<TankController>().SpriteEnabler();
+            Tank1.GetComponent<TankController>().isPlayerTurn = true;
+            Tank1.GetComponent<TankController>().SpriteEnabler();
+            camControl.movingToPlayer1 = true;
         }
         else
         {
@@ -36,9 +38,9 @@ public class TurnManager : MonoBehaviour
     {
         if (TotalBullets== 0)
         {
-            Tank1.GetComponent<TankController>().isPlayerTurn = true;
-            Tank1.GetComponent<TankController>().SpriteEnabler();
-
+            Tank2.GetComponent<TankController>().isPlayerTurn = true;
+            Tank2.GetComponent<TankController>().SpriteEnabler();
+            camControl.movingToPlayer2 = true;
         }
         else
         {
