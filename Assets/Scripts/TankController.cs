@@ -35,6 +35,8 @@ public class TankController : MonoBehaviour
     private int player2Turn = 0;
     public bool isPlayerTurn = true;
 
+    private int TotalBulletsInScene = 0;
+
     private Rigidbody2D rb;
     private float dirX = 0f;
     private float moveSpeed = 3f;
@@ -63,6 +65,7 @@ public class TankController : MonoBehaviour
     }
     void Update()
     {
+        TotalBulletsInScene = GameObject.FindGameObjectsWithTag("Bullet").Length;
         if (isPlayerTurn == true)
         {
             BulletVisualizerUI();
@@ -107,7 +110,7 @@ public class TankController : MonoBehaviour
     }
     private void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && (cooldownOnShots <= 0))
+        if (Input.GetKeyDown(KeyCode.Space) && (cooldownOnShots <= 0) && TotalBulletsInScene == 0)
         {
             cooldownOnShots = 1.0f;
             GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
