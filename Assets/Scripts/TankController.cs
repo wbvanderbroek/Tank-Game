@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.UI;
 public class TankController : MonoBehaviour
@@ -34,7 +35,7 @@ public class TankController : MonoBehaviour
 
     private int player1Turn = 0;
     private int player2Turn = 0;
-    public bool isPlayerTurn = true;
+    public bool isPlayerTurn = false;
 
     private int TotalBulletsInScene = 0;
 
@@ -47,21 +48,31 @@ public class TankController : MonoBehaviour
         controller2 = controller2.GetComponent<TankController>();
         rb = GetComponent<Rigidbody2D>(); 
     }
-    public void SpriteEnabler()
+    public void BulletSpriteEnabler()
     {
         if (controller1.isPlayerTurn == true)
-        {
-            GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
+        {  
             bullets1Leftplayer1.enabled = true;
             bullets2Leftplayer1.enabled = true;
             bullets3Leftplayer1.enabled = true;
         }
         if (controller2.isPlayerTurn == true)
         {
-            GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
             bullets1Leftplayer2.enabled = true;
             bullets2Leftplayer2.enabled = true;
             bullets3Leftplayer2.enabled = true;
+        }
+        if (controller1.isPlayerTurn == false)
+        {
+            bullets1Leftplayer1.enabled = false;
+            bullets2Leftplayer1.enabled = false;
+            bullets3Leftplayer1.enabled = false;
+        }
+        if (controller2.isPlayerTurn == false)
+        {
+            bullets1Leftplayer2.enabled = false;
+            bullets2Leftplayer2.enabled = false;
+            bullets3Leftplayer2.enabled = false;
         }
     }
     void Update()
@@ -74,6 +85,22 @@ public class TankController : MonoBehaviour
             Shoot();
             PlayerTurnManager();
             BulletPowerAdjuster();
+            if (camControl.movingToPlayer1 == false)
+            {
+                GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
+            }
+            if (camControl.movingToPlayer2 == false)
+            {
+                GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
+            }
+        }
+        if (camControl.movingToPlayer1 == true)
+        {
+            GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
+        }
+        if (camControl.movingToPlayer2 == true)
+        {
+            GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
         }
     }
     private void BulletVisualizerUI()
@@ -188,6 +215,5 @@ public class TankController : MonoBehaviour
             }
         }
     }
-
 }
 

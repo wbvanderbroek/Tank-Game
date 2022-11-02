@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -15,14 +16,46 @@ public class CameraController : MonoBehaviour
     public bool movingToPlayer2 = false;
     public bool allowMoveAndShoot = false;
 
+    private float camSize = 10f;
+    
+    private int startingRandomPlayer;
 
     private void Start()
     {
+        startingRandomPlayer = Random.Range(1, 3);
+        if (startingRandomPlayer == 1)
+        {
+            Invoke("AtStartMoveToPlayer1", 1.5f);
+        }
+        if (startingRandomPlayer == 2)
+        {
+            Invoke("AtStartMoveToPlayer2", 1.5f);
+        }
+    }
+
+    private void AtStartMoveToPlayer1()
+    {
         movingToPlayer1 = true;
+        controller1.isPlayerTurn = true;
+        controller1.BulletSpriteEnabler();
+
+    }
+    private void AtStartMoveToPlayer2()
+    {
+        movingToPlayer2 = true;
+        controller2.isPlayerTurn = true;
+        controller2.BulletSpriteEnabler();
     }
     private Vector3 target;
     void Update()
     {
+        if (camSize > 6.4f)
+        {
+            camSize -= Time.deltaTime * 1.5f;
+        }
+
+        Camera.main.orthographicSize = camSize;
+
         if (controller1.dirX < -0.02f || controller1.dirX > 0.02f)
         {
             if (controller1.isPlayerTurn == true && movingToPlayer1 == false)
