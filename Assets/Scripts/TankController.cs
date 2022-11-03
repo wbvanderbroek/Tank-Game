@@ -169,18 +169,17 @@ public class TankController : MonoBehaviour
         {
             rotationZ1 -= Input.GetAxis("Vertical") * Time.deltaTime * barrelRotationSpeed * -1;
             rotationZ1 = Mathf.Clamp(rotationZ1, -95, -45);
-            barrelRotator.transform.eulerAngles = new Vector3(0, 0, rotationZ1);
+            barrelRotator.transform.localEulerAngles= new Vector3(0, 0, rotationZ1);
         }
         if (controller2.isPlayerTurn == true)
         {
             rotationZ2 -= Input.GetAxis("Vertical") * Time.deltaTime * barrelRotationSpeed * -1;
             rotationZ2 = Mathf.Clamp(rotationZ2, -95, -45);
-            barrelRotator.transform.eulerAngles = new Vector3(0, 180, rotationZ2);
+            barrelRotator.transform.localEulerAngles = new Vector3(0, 180, rotationZ2);
         }
     }
     private void PlayerTurnManager()
     {
-        //nog toevoegen dat als er van player geswapped wordt dat dan de cam ook veranderd van target
         if (player1Turn == 3)
         {
             bullets3Leftplayer1.enabled = false;
