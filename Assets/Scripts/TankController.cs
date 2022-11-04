@@ -85,22 +85,26 @@ public class TankController : MonoBehaviour
             Shoot();
             PlayerTurnManager();
             BulletPowerAdjuster();
-            if (camControl.movingToPlayer1 == false)
-            {
-                //GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
-            }
-            if (camControl.movingToPlayer2 == false)
-            {
-                //GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
-            }
+            CamController();
         }
         if (camControl.movingToPlayer1 == true)
         {
-            //GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
+            GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
         }
         if (camControl.movingToPlayer2 == true)
         {
-            //GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
+            GetComponentInChildren<SpriteRenderer>().sprite = inactiveSprite;
+        }
+    }
+    private void CamController()
+    {
+        if (camControl.movingToPlayer1 == false)
+        {
+            GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
+        }
+        if (camControl.movingToPlayer2 == false)
+        {
+            GetComponentInChildren<SpriteRenderer>().sprite = activeSprite;
         }
     }
     private void BulletVisualizerUI()
