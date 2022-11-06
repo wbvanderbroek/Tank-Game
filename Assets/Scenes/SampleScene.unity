@@ -22632,6 +22632,7 @@ GameObject:
   - component: {fileID: 1766734094}
   - component: {fileID: 1766734096}
   - component: {fileID: 1766734097}
+  - component: {fileID: 1766734098}
   m_Layer: 0
   m_Name: tankBody1
   m_TagString: Untagged
@@ -22748,6 +22749,26 @@ CapsuleCollider2D:
   m_Offset: {x: -0.08440798, y: -0.3738891}
   m_Size: {x: 1.1624506, y: 0.24140812}
   m_Direction: 1
+--- !u!95 &1766734098
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766734093}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b80a797f553c722499664c8ac94ddbdd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1770014322
 GameObject:
   m_ObjectHideFlags: 0
@@ -23228,6 +23249,7 @@ GameObject:
   - component: {fileID: 1927108029}
   - component: {fileID: 1927108028}
   - component: {fileID: 1927108030}
+  - component: {fileID: 1927108031}
   m_Layer: 0
   m_Name: tankBody2
   m_TagString: Untagged
@@ -23344,6 +23366,26 @@ CapsuleCollider2D:
   m_Offset: {x: -0.08440798, y: -0.3738891}
   m_Size: {x: 1.1624506, y: 0.24140812}
   m_Direction: 1
+--- !u!95 &1927108031
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927108026}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40f5c3b62521ce444a79be14a10fdacd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1965359855
 GameObject:
   m_ObjectHideFlags: 0

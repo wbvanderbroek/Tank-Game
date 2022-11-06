@@ -42,8 +42,11 @@ public class TankController : MonoBehaviour
     private Rigidbody2D rb;
     public float dirX = 0f;
     private float moveSpeed = 3f;
+
+    Animator anim;
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         controller1 = controller1.GetComponent<TankController>();
         controller2 = controller2.GetComponent<TankController>();
         rb = GetComponent<Rigidbody2D>(); 
@@ -86,6 +89,15 @@ public class TankController : MonoBehaviour
             PlayerTurnManager();
             BulletPowerAdjuster();
             CamController();
+
+        }
+        if (camControl.allowMoveAndShoot == true && isPlayerTurn)
+        {
+            anim.SetBool("isActive", true);
+        }
+        else
+        {
+            anim.SetBool("isActive", false);
         }
         if (camControl.movingToPlayer1 == true)
         {
@@ -163,6 +175,14 @@ public class TankController : MonoBehaviour
     }
     private void Movement()
     {
+        if (dirX != 0f)
+        {
+            anim.SetBool("isDriving", true);
+        }
+        else
+        {
+            anim.SetBool("isDriving", false);
+        }
         if (camControl.allowMoveAndShoot == true)
         {
             dirX = Input.GetAxis("Horizontal");
