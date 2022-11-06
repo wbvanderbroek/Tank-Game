@@ -23612,6 +23612,8 @@ MonoBehaviour:
   Tank1: {fileID: 1997111011}
   Tank2: {fileID: 2059560152}
   turnEngine: {fileID: 519420028}
+  healthManager1: {fileID: 1997111016}
+  healthManager2: {fileID: 2059560156}
 --- !u!1 &2020348766
 GameObject:
   m_ObjectHideFlags: 0
@@ -23863,3 +23865,5 @@ MonoBehaviour:
   Tank1: {fileID: 1997111011}
   Tank2: {fileID: 2059560152}
   turnEngine: {fileID: 519420028}
+  healthManager1: {fileID: 1997111016}
+  healthManager2: {fileID: 2059560156}
