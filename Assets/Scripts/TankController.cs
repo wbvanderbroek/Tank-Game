@@ -44,6 +44,8 @@ public class TankController : MonoBehaviour
     private float moveSpeed = 3f;
 
     Animator anim;
+
+    [SerializeField] private AudioSource shootSoundEffect;
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -158,6 +160,7 @@ public class TankController : MonoBehaviour
             TotalBulletsInScene = GameObject.FindGameObjectsWithTag("Bullet").Length;
             if (Input.GetKeyDown(KeyCode.Space) && (cooldownOnShots <= 0) && TotalBulletsInScene == 0)
             {
+                shootSoundEffect.Play();
                 cooldownOnShots = 1.0f;
                 GameObject b = Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
                 b.GetComponent<Rigidbody2D>().AddForce(barrelRotator.up * bulletPower, ForceMode2D.Impulse);
