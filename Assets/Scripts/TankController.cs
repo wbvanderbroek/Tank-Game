@@ -44,7 +44,7 @@ public class TankController : MonoBehaviour
 
     Animator anim;
 
-    [SerializeField] private AudioSource shootSoundEffect;
+    [SerializeField] AudioSource shootSoundEffect;
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
