@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     public bool movingToPlayer2 = false;
     public bool allowMoveAndShoot = false;
 
-    private float camSize = 10f;
+    private float camSize = 13f;
     
     private int startingRandomPlayer;
 
